@@ -2,6 +2,7 @@ package com.davincicode.bibliotecaplus.interfaz.bibliotecario;
 
 import com.davincicode.bibliotecaplus.gestionautores.servicio.AutorServicio;
 import com.davincicode.bibliotecaplus.gestionautores.modelo.Autor;
+import com.davincicode.bibliotecaplus.gestionlibros.servicio.LibroServicio;
 
 import javax.swing.*;
 import java.util.List;
@@ -27,7 +28,7 @@ public class MenuBibliotecario {
                 //TODO: llamar método para buscar libros
                 break;
             case 2:
-                //TODO: llamar método para agregar libros
+                agregarLibroABiblioteca();
                 break;
             case 3:
                /*si selecciona la opción de la posición 3 "salir" lo sacamos del sistema*/
@@ -35,6 +36,50 @@ public class MenuBibliotecario {
                 break;
         }
 
+    }
+
+    private void agregarLibroABiblioteca(){
+        String[] datosLibro = armarModalCargarLibro();
+        String titulo, autor, fechaDevolucion;
+        titulo = datosLibro[0];
+        autor = datosLibro[1];
+        fechaDevolucion = datosLibro[2];
+        Integer fechaDevolucionConvertidaAInteger = Integer.valueOf(fechaDevolucion);/*convertimos la fecha String a Integer*/
+        boolean disponibilidad = true; /*cuando cargamos el libro lo dejamos disponible para que lo pidan*/
+
+        LibroServicio bibliotecario = new LibroServicio();/*creamos instancia de LibroServicio para llamar al método que agrega el libro*/
+        bibliotecario.agregarLibroABiblioteca(titulo, autor, disponibilidad, fechaDevolucionConvertidaAInteger);
+
+    }
+
+    private static String[] armarModalCargarLibro() {
+        // Crea un JPanel para los inputs donde ingresa información el usuario
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JTextField tituloLibro = new JTextField(20);
+        JTextField autorLibro = new JTextField(20);
+        JTextField fechaDevolucionDelLibro = new JTextField(20);
+
+        // Agregar los campos al panel
+        panel.add(new JLabel("Ingrese título del libro:"));
+        panel.add(tituloLibro);
+        panel.add(new JLabel("Ingrese autor del libro:"));
+        panel.add(autorLibro);
+        panel.add(new JLabel("Ingrese Fecha devolución del libro:"));
+        panel.add(fechaDevolucionDelLibro);
+
+        // Mostrar el dialogo con el panel
+        int option = JOptionPane.showConfirmDialog(null, panel, "Ingresar usuario y contraseña", JOptionPane.OK_CANCEL_OPTION);
+
+        // Si el usuario presiona OK, retornar los valores
+        if (option == JOptionPane.OK_OPTION) {
+            return new String[]{
+                    tituloLibro.getText(),
+                    autorLibro.getText(),
+                    fechaDevolucionDelLibro.getText(),
+            };
+        }
+        return null; // Retornar null si se cancela
     }
 
     private int mostrarMsjeSeleccionFuncionalidad(String[] funcionalidades){

@@ -20,4 +20,9 @@ public class LibroServicio {
         return datosLibros.mostrarResenias();
     }
 
+
+    public void agregarLibroABiblioteca(String titulo, String autor, boolean disponibilidad , int fechaDeDevolucion){
+        datosLibros.agregarLibro(titulo, autor, disponibilidad, fechaDeDevolucion);
+    }
+
 }

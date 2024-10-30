@@ -31,4 +31,12 @@ public class BDLibros implements LibroRepository{
         return List.of((Resenia) resenias);
     }
 
+    @Override
+    public void agregarLibro(String titulo, String autor, boolean disponibilidad, int fechaDeDevolucion) {
+        Libro libroACargar = new Libro(titulo, autor, disponibilidad, fechaDeDevolucion);
+        libros.add(libroACargar);
+        JOptionPane.showMessageDialog(null, "Libro agregado a la lista de libros");
+
+    }
+
 }
