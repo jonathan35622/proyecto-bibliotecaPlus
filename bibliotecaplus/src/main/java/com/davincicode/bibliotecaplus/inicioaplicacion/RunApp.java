@@ -45,7 +45,7 @@ public class RunApp {
         }
         if (seleccion == 0) { // selección para el rol de Bibliotecario
             /**cargamos la vista para el bibliotecario*/
-            MenuBibliotecario menuBibliotecario = new MenuBibliotecario();//creamos el menú para el bibliotecario
+            MenuBibliotecario menuBibliotecario = new MenuBibliotecario();//creamos el menú para el bibliotecario / Creamos una instancia de MenuBibliotecario
             menuBibliotecario.mostrarMenu();
         } else if (seleccion == 1) { // selección para el rol de Socio
             /**cargamos la vista para el socio*/

@@ -1,6 +1,6 @@
 package com.davincicode.bibliotecaplus.gestionautores.modelo;
 
-import com.davincicode.bibliotecaplus.gestionusuarios.modelo.Usuario;
+import com.davincicode.bibliotecaplus.comunusuarios.modelo.Usuario;
 
 public class Autor  extends Usuario {
     private String apellido;

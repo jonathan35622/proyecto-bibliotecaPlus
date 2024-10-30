@@ -2,7 +2,6 @@ package com.davincicode.bibliotecaplus.gestionlibros.repositorio;
 
 import com.davincicode.bibliotecaplus.gestionlibros.modelo.Libro;
 import com.davincicode.bibliotecaplus.gestionlibros.modelo.Resenia;
-import com.davincicode.bibliotecaplus.gestionusuarios.modelo.Socio;
 
 import javax.swing.*;
 import java.util.ArrayList;
